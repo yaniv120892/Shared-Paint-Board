@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="boardDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_draw_rules">
+    <Key>
+      <PropertyRef Name="max_number_of_elements_per_user_per_day" />
+    </Key>
+    <Property Name="max_number_of_elements_per_user_per_day" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_elements_in_group_draw">
+    <Key>
+      <PropertyRef Name="group_id" />
+      <PropertyRef Name="startPointX" />
+      <PropertyRef Name="startPointY" />
+      <PropertyRef Name="endPointX" />
+      <PropertyRef Name="endPointY" />
+      <PropertyRef Name="color" />
+      <PropertyRef Name="element_type" />
+    </Key>
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="startPointX" Type="int" Nullable="false" />
+    <Property Name="startPointY" Type="int" Nullable="false" />
+    <Property Name="endPointX" Type="int" Nullable="false" />
+    <Property Name="endPointY" Type="int" Nullable="false" />
+    <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="element_type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="time_added" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_groups">
+    <Key>
+      <PropertyRef Name="group_id" />
+    </Key>
+    <Property Name="group_id" Type="int" Nullable="false" />
+    <Property Name="group_name" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_users">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ip" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="useragent" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="type" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="boardDBModelStoreContainer">
+    <EntitySet Name="tbl_draw_rules" EntityType="Self.tbl_draw_rules" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_elements_in_group_draw" EntityType="Self.tbl_elements_in_group_draw" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_groups" EntityType="Self.tbl_groups" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

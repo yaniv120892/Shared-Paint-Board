@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="boardDBModelStoreContainer" CdmEntityContainer="boardDBEntities">
+    <EntitySetMapping Name="tbl_draw_rules">
+      <EntityTypeMapping TypeName="boardDBModel.tbl_draw_rules">
+        <MappingFragment StoreEntitySet="tbl_draw_rules">
+          <ScalarProperty Name="max_number_of_elements_per_user_per_day" ColumnName="max_number_of_elements_per_user_per_day" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_elements_in_group_draw">
+      <EntityTypeMapping TypeName="boardDBModel.tbl_elements_in_group_draw">
+        <MappingFragment StoreEntitySet="tbl_elements_in_group_draw">
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="startPointX" ColumnName="startPointX" />
+          <ScalarProperty Name="startPointY" ColumnName="startPointY" />
+          <ScalarProperty Name="endPointX" ColumnName="endPointX" />
+          <ScalarProperty Name="endPointY" ColumnName="endPointY" />
+          <ScalarProperty Name="color" ColumnName="color" />
+          <ScalarProperty Name="element_type" ColumnName="element_type" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="time_added" ColumnName="time_added" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_groups">
+      <EntityTypeMapping TypeName="boardDBModel.tbl_groups">
+        <MappingFragment StoreEntitySet="tbl_groups">
+          <ScalarProperty Name="group_id" ColumnName="group_id" />
+          <ScalarProperty Name="group_name" ColumnName="group_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_users">
+      <EntityTypeMapping TypeName="boardDBModel.tbl_users">
+        <MappingFragment StoreEntitySet="tbl_users">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="useragent" ColumnName="useragent" />
+          <ScalarProperty Name="type" ColumnName="type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

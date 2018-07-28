@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="boardDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_draw_rules">
+          <Key>
+            <PropertyRef Name="max_number_of_elements_per_user_per_day" />
+          </Key>
+          <Property Name="max_number_of_elements_per_user_per_day" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_elements_in_group_draw">
+          <Key>
+            <PropertyRef Name="group_id" />
+            <PropertyRef Name="startPointX" />
+            <PropertyRef Name="startPointY" />
+            <PropertyRef Name="endPointX" />
+            <PropertyRef Name="endPointY" />
+            <PropertyRef Name="color" />
+            <PropertyRef Name="element_type" />
+          </Key>
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="startPointX" Type="int" Nullable="false" />
+          <Property Name="startPointY" Type="int" Nullable="false" />
+          <Property Name="endPointX" Type="int" Nullable="false" />
+          <Property Name="endPointY" Type="int" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="element_type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="time_added" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_groups">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="int" Nullable="false" />
+          <Property Name="group_name" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="int" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ip" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="useragent" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="type" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="boardDBModelStoreContainer">
+          <EntitySet Name="tbl_draw_rules" EntityType="Self.tbl_draw_rules" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_elements_in_group_draw" EntityType="Self.tbl_elements_in_group_draw" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_groups" EntityType="Self.tbl_groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_users" EntityType="Self.tbl_users" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="boardDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_draw_rules">
+          <Key>
+            <PropertyRef Name="max_number_of_elements_per_user_per_day" />
+          </Key>
+          <Property Name="max_number_of_elements_per_user_per_day" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_elements_in_group_draw">
+          <Key>
+            <PropertyRef Name="group_id" />
+            <PropertyRef Name="startPointX" />
+            <PropertyRef Name="startPointY" />
+            <PropertyRef Name="endPointX" />
+            <PropertyRef Name="endPointY" />
+            <PropertyRef Name="color" />
+            <PropertyRef Name="element_type" />
+          </Key>
+          <Property Name="group_id" Type="Int32" Nullable="false" />
+          <Property Name="startPointX" Type="Int32" Nullable="false" />
+          <Property Name="startPointY" Type="Int32" Nullable="false" />
+          <Property Name="endPointX" Type="Int32" Nullable="false" />
+          <Property Name="endPointY" Type="Int32" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="element_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="time_added" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_groups">
+          <Key>
+            <PropertyRef Name="group_id" />
+          </Key>
+          <Property Name="group_id" Type="Int32" Nullable="false" />
+          <Property Name="group_name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_users">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ip" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="useragent" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="boardDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_draw_rules" EntityType="Self.tbl_draw_rules" />
+          <EntitySet Name="tbl_elements_in_group_draw" EntityType="Self.tbl_elements_in_group_draw" />
+          <EntitySet Name="tbl_groups" EntityType="Self.tbl_groups" />
+          <EntitySet Name="tbl_users" EntityType="Self.tbl_users" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="boardDBModelStoreContainer" CdmEntityContainer="boardDBEntities">
+          <EntitySetMapping Name="tbl_draw_rules">
+            <EntityTypeMapping TypeName="boardDBModel.tbl_draw_rules">
+              <MappingFragment StoreEntitySet="tbl_draw_rules">
+                <ScalarProperty Name="max_number_of_elements_per_user_per_day" ColumnName="max_number_of_elements_per_user_per_day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_elements_in_group_draw">
+            <EntityTypeMapping TypeName="boardDBModel.tbl_elements_in_group_draw">
+              <MappingFragment StoreEntitySet="tbl_elements_in_group_draw">
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="startPointX" ColumnName="startPointX" />
+                <ScalarProperty Name="startPointY" ColumnName="startPointY" />
+                <ScalarProperty Name="endPointX" ColumnName="endPointX" />
+                <ScalarProperty Name="endPointY" ColumnName="endPointY" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="element_type" ColumnName="element_type" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="time_added" ColumnName="time_added" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_groups">
+            <EntityTypeMapping TypeName="boardDBModel.tbl_groups">
+              <MappingFragment StoreEntitySet="tbl_groups">
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="group_name" ColumnName="group_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_users">
+            <EntityTypeMapping TypeName="boardDBModel.tbl_users">
+              <MappingFragment StoreEntitySet="tbl_users">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="useragent" ColumnName="useragent" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
